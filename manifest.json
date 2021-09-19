@@ -1,0 +1,28 @@
+{
+  "name": "manga-blacklist",
+  "description": "Read the extension name.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage", "unlimitedStorage", "downloads"],
+  "host_permissions": ["http://www.example.com/*"],
+  "options_page": "./options-page/options.html",
+  "content_scripts": [{
+    "matches": [
+      "https://ac.qq.com/Comic/all/search/time/page/1",
+      "https://manga.bilibili.com/*",
+      "https://mangaowl.net/new_release/*"
+    ],
+    "run_at": "document_idle",
+    "js": [
+      "./content-scripts/configs.js",
+      "./content-scripts/classes.js",
+      "./content-scripts/main.js"
+    ],
+    "css": [
+      "./stylesheets/style.css"
+    ]}
+  ]
+}

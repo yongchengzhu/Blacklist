@@ -18,6 +18,7 @@ switch (location.hostname) {
     var BASE_URL = null;
     var SEARCH_RESULTS_CONTAINER_SELECTOR = null;
     var LOAD_IMAGE = null;
+    break;
   case 'mangaowl.net':
     var SEARCH_RESULTS_SELECTOR = '.comicView';
     var MANGA_TITLE_SELECTOR = '.w3l-movie-text';
@@ -26,6 +27,7 @@ switch (location.hostname) {
     var SEARCH_RESULTS_CONTAINER_SELECTOR = '.agile_tv_series_grid';
     var LOAD_IMAGE = manga => 
       manga.querySelector('.img-responsive').style.backgroundImage = `url(${manga.querySelector('.img-responsive').getAttribute('data-background-image')})`;
+    break;
   case 'mangakakalot.com':
     var SEARCH_RESULTS_SELECTOR = '.list-truyen-item-wrap';
     var MANGA_TITLE_SELECTOR = '.list-truyen-item-wrap > h3';
@@ -35,6 +37,7 @@ switch (location.hostname) {
     var LOAD_IMAGE = () => {};
     document.querySelector(SEARCH_RESULTS_CONTAINER_SELECTOR).querySelectorAll('div:not(.list-truyen-item-wrap)').forEach(e => e.remove());
     document.querySelector(SEARCH_RESULTS_CONTAINER_SELECTOR).querySelectorAll('ul').forEach(e => e.remove());
+    break;
   case 'chessmoba.us':
     document.querySelector('nav').remove();
     document.querySelector('.owl-direction').style.bottom = 0;

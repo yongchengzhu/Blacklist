@@ -21,4 +21,5 @@ const rerender = () => {
   }
 }
 
-window.addEventListener("load", main, false);
+if (SEARCH_RESULTS_SELECTOR)
+  window.addEventListener("load", main, false);

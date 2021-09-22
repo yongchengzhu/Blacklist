@@ -7,7 +7,7 @@ switch (location.hostname) {
     var SEARCH_RESULTS_SELECTOR = 'li.ret-search-item.clearfix';
     var MANGA_TITLE_SELECTOR = 'h3.ret-works-title.clearfix';
     var LAZY_LOAD = true;
-    var BASE_URL = 'https://ac.qq.com/Comic/all/search/time/page/';
+    var BASE_URL = `${window.location.href.slice(0, -1)}`;
     var SEARCH_RESULTS_CONTAINER_SELECTOR = 'ul.ret-search-list.clearfix';
     var LOAD_IMAGE = manga => manga.querySelector('.lazy').src = manga.querySelector('.lazy').getAttribute('data-original');
     break;
@@ -22,10 +22,14 @@ switch (location.hostname) {
     var SEARCH_RESULTS_SELECTOR = '.comicView';
     var MANGA_TITLE_SELECTOR = '.w3l-movie-text';
     var LAZY_LOAD = true;
-    var BASE_URL = 'https://mangaowl.net/new_release/';
+    var BASE_URL = `${window.location.href}/`;
     var SEARCH_RESULTS_CONTAINER_SELECTOR = '.agile_tv_series_grid';
     var LOAD_IMAGE = manga => 
       manga.querySelector('.img-responsive').style.backgroundImage = `url(${manga.querySelector('.img-responsive').getAttribute('data-background-image')})`;
+  case 'chessmoba.us':
+    document.querySelector('nav').remove();
+    document.querySelector('.owl-direction').style.bottom = 0;
+    document.querySelector('.owl-back-top').style.bottom = 0;
     break;
   default:
     break;

@@ -11,9 +11,10 @@
   "options_page": "./options-page/options.html",
   "content_scripts": [{
     "matches": [
-      "https://ac.qq.com/Comic/all/search/time/page/1",
+      "https://ac.qq.com/*",
       "https://manga.bilibili.com/*",
-      "https://mangaowl.net/new_release/*"
+      "https://mangaowl.net/*",
+      "https://chessmoba.us/*"
     ],
     "run_at": "document_idle",
     "js": [

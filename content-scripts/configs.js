@@ -26,6 +26,15 @@ switch (location.hostname) {
     var SEARCH_RESULTS_CONTAINER_SELECTOR = '.agile_tv_series_grid';
     var LOAD_IMAGE = manga => 
       manga.querySelector('.img-responsive').style.backgroundImage = `url(${manga.querySelector('.img-responsive').getAttribute('data-background-image')})`;
+  case 'mangakakalot.com':
+    var SEARCH_RESULTS_SELECTOR = '.list-truyen-item-wrap';
+    var MANGA_TITLE_SELECTOR = '.list-truyen-item-wrap > h3';
+    var LAZY_LOAD = true;
+    var BASE_URL = `${window.location.href.slice(0, -1)}`;
+    var SEARCH_RESULTS_CONTAINER_SELECTOR = '.truyen-list';
+    var LOAD_IMAGE = () => {};
+    document.querySelector(SEARCH_RESULTS_CONTAINER_SELECTOR).querySelectorAll('div:not(.list-truyen-item-wrap)').forEach(e => e.remove());
+    document.querySelector(SEARCH_RESULTS_CONTAINER_SELECTOR).querySelectorAll('ul').forEach(e => e.remove());
   case 'chessmoba.us':
     document.querySelector('nav').remove();
     document.querySelector('.owl-direction').style.bottom = 0;

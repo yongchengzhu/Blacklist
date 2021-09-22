@@ -1,6 +1,20 @@
 #blacklist-button {
-    background-color: red;
-    color: white;
-    border: none;
-    height: 100%;
+  background-color: red;
+  color: white;
+  border: none;
+  height: 100%;
+  cursor: pointer;
+}
+
+/* mangakakalot */
+.list-truyen-item-wrap {
+  position: relative;
+}
+
+.list-truyen-item-wrap button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 20px!important;
+  width: 20px;
 }

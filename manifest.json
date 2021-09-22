@@ -14,7 +14,8 @@
       "https://ac.qq.com/*",
       "https://manga.bilibili.com/*",
       "https://mangaowl.net/*",
-      "https://chessmoba.us/*"
+      "https://chessmoba.us/*",
+      "https://mangakakalot.com/*&page=1"
     ],
     "run_at": "document_idle",
     "js": [

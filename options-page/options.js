@@ -9,7 +9,7 @@ document.querySelector('#clear-blacklist').addEventListener('click', () => {
 document.querySelector('#export-blacklist').addEventListener('click', () => {
     chrome.storage.local.get(null, function(items) {
     const result = JSON.stringify(items);
-    const url = 'data:application/json;base64,' + btoa(result);
+    const url = 'data:application/json;base64,' + btoa(unescape(encodeURIComponent(result)));
     chrome.downloads.download({
       url: url,
       filename: 'manga-blacklist.json'
@@ -39,9 +39,18 @@ const renderBlacklist = () => {
   chrome.storage.local.get(null, results => {
     const blacklist = document.querySelector('#blacklist');
     for (let href in results) {
+      const unblacklistButton = document.createElement('button');
+      unblacklistButton.setAttribute('id', '#unblacklist-button');
+      unblacklistButton.innerHTML = 'X';
       const title = results[href];
       const item = document.createElement('li');
       item.innerHTML = `${title}: ${href}`;
+      item.appendChild(unblacklistButton);
+      unblacklistButton.addEventListener('click', () => {
+        chrome.storage.local.remove(href, () => {
+          item.remove();
+        });
+      });
       blacklist.appendChild(item);
     };
   });

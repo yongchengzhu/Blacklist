@@ -18,3 +18,13 @@
   height: 20px!important;
   width: 20px;
 }
+
+/* qq */
+.ret-works-title.clearfix {
+  position: relative;
+}
+
+.ret-works-title.clearfix #blacklist-button {
+  position: absolute;
+  right: 24px;
+}

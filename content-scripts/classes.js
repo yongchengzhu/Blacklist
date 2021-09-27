@@ -1,5 +1,6 @@
 var Search = class {
   constructor(dom) {
+    dom.querySelectorAll('a').forEach(node => node.setAttribute('target', '_blank'));
     this.items = dom.querySelectorAll(SEARCH_RESULTS_SELECTOR);
   }
 

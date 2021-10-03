@@ -6,6 +6,11 @@
   cursor: pointer;
 }
 
+/* mangaowl */
+.navbar.navbar-inverse.navbar-fixed-top {
+  opacity: 0!important;
+}
+
 /* mangakakalot */
 .list-truyen-item-wrap {
   position: relative;

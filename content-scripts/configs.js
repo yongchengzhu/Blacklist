@@ -39,7 +39,6 @@ switch (location.hostname) {
     document.querySelector(SEARCH_RESULTS_CONTAINER_SELECTOR).querySelectorAll('ul').forEach(e => e.remove());
     break;
   case 'chessmoba.us':
-    document.querySelector('nav').remove();
     document.querySelector('.owl-direction').style.bottom = 0;
     document.querySelector('.owl-back-top').style.bottom = 0;
     break;

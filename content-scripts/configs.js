@@ -42,6 +42,15 @@ switch (location.hostname) {
     document.querySelector('.owl-direction').style.bottom = 0;
     document.querySelector('.owl-back-top').style.bottom = 0;
     break;
+  case 'www.mkzhan.com':
+    var SEARCH_RESULTS_SELECTOR = '.common-comic-item';
+    var MANGA_TITLE_SELECTOR = '.comic__title';
+    var LAZY_LOAD = true;
+    var BASE_URL = `${window.location.href}&page=`;
+    var SEARCH_RESULTS_CONTAINER_SELECTOR = '.cate-comic-list.clearfix';
+    var LOAD_IMAGE = manga => 
+      manga.querySelector('.lazy').src = manga.querySelector('.lazy').getAttribute('data-src');
+    break;
   default:
     break;
 }

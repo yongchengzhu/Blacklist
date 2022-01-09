@@ -26,7 +26,7 @@ var Manga = class {
     this.item = searchItem;
     this.header = searchItem.querySelector(MANGA_TITLE_SELECTOR);
     const { href } = this.header.querySelector('a');
-    const { title } = this.header.querySelector('[title]');
+    const title = this.header.querySelector('[title]') || this.header.querySelector('a').innerText;
     this.href = href.toLowerCase();
     this.title = title;
   }

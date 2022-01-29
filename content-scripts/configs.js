@@ -72,16 +72,16 @@ switch (location.hostname) {
       manga.querySelector('.fed-lazy').style = `background-image: url("${manga.querySelector('.fed-lazy').getAttribute('data-original')}")`;
     document.querySelectorAll(MANGA_TITLE_SELECTOR).forEach(title => swapElementTag(title, 'div'));
     // Remove ads
-    window.setInterval(() =>
-      document.querySelectorAll(
-        `
-        [id^="sticky"],
-        .website-pc-read-common,
-        iframe, div:not([class]),
-        div[class=""]
-        `
-      ).forEach(ad => ad.remove())
-    , 1000);
+    const removeAds = () => document.querySelectorAll(
+      `
+      [id^="sticky"],
+      .website-pc-read-common,
+      iframe, div:not([class]),
+      div[class=""]
+      `
+    ).forEach(ad => ad.remove());
+    removeAds();
+    window.setInterval(removeAds, 1000);
     break;
   default:
     break;

@@ -2,6 +2,17 @@ var blacklistEvent = new Event('blacklist');
 var renderEvent = new Event('render');
 var SCROLL_THRESHOLD = 0.75;
 
+const swapElementTag = (oldElement, newTag) => {
+  const newElement = document.createElement(newTag);
+  newElement.attributes = oldElement.attributes;
+  newElement.innerHTML = oldElement.innerHTML;
+  newElement.innerText = oldElement.innerText;
+  [...oldElement.attributes].forEach(attr => newElement.setAttribute(attr.nodeName ,attr.nodeValue));
+  if (oldElement.tagName === 'A')
+    newElement.href = oldElement.href;
+  oldElement.parentNode.replaceChild(newElement, oldElement);
+}
+
 switch (location.hostname) {
   case 'ac.qq.com':
     var SEARCH_RESULTS_SELECTOR = 'li.ret-search-item.clearfix';
@@ -57,8 +68,9 @@ switch (location.hostname) {
     var LAZY_LOAD = true;
     var BASE_URL = `${window.location.href}&page=`;
     var SEARCH_RESULTS_CONTAINER_SELECTOR = '.fed-list-info';
-    var LOAD_IMAGE = manga => 
+    var LOAD_IMAGE = manga =>
       manga.querySelector('.fed-lazy').style = `background-image: url("${manga.querySelector('.fed-lazy').getAttribute('data-original')}")`;
+    document.querySelectorAll(MANGA_TITLE_SELECTOR).forEach(title => swapElementTag(title, 'div'));
     break;
   default:
     break;

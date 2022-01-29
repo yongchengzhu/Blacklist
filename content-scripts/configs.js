@@ -71,6 +71,17 @@ switch (location.hostname) {
     var LOAD_IMAGE = manga =>
       manga.querySelector('.fed-lazy').style = `background-image: url("${manga.querySelector('.fed-lazy').getAttribute('data-original')}")`;
     document.querySelectorAll(MANGA_TITLE_SELECTOR).forEach(title => swapElementTag(title, 'div'));
+    // Remove ads
+    window.setInterval(() =>
+      document.querySelectorAll(
+        `
+        [id^="sticky"],
+        .website-pc-read-common,
+        iframe, div:not([class]),
+        div[class=""]
+        `
+      ).forEach(ad => ad.remove())
+    , 1000);
     break;
   default:
     break;

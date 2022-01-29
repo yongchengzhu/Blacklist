@@ -51,6 +51,15 @@ switch (location.hostname) {
     var LOAD_IMAGE = manga => 
       manga.querySelector('.lazy').src = manga.querySelector('.lazy').getAttribute('data-src');
     break;
+  case 'www.cocomanga.com':
+    var SEARCH_RESULTS_SELECTOR = '.fed-list-item';
+    var MANGA_TITLE_SELECTOR = '.fed-list-title';
+    var LAZY_LOAD = true;
+    var BASE_URL = `${window.location.href}&page=`;
+    var SEARCH_RESULTS_CONTAINER_SELECTOR = '.fed-list-info';
+    var LOAD_IMAGE = manga => 
+      manga.querySelector('.fed-lazy').style = `background-image: url("${manga.querySelector('.fed-lazy').getAttribute('data-original')}")`;
+    break;
   default:
     break;
 }

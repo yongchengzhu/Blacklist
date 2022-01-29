@@ -45,3 +45,16 @@
   width: 20px;
   height: 20px;
 }
+
+/* coco */
+.fed-list-title {
+  position: relative;
+}
+
+.fed-list-title #blacklist-button {
+  position: absolute;
+  right: 0px;
+  width: 20px;
+  height: 20px;
+}
+

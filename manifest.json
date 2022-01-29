@@ -16,7 +16,8 @@
       "https://mangaowl.net/*",
       "https://chessmoba.us/*",
       "https://mangakakalot.com/*&page=1",
-      "https://www.mkzhan.com/*"
+      "https://www.mkzhan.com/*",
+      "https://www.cocomanga.com/*"
     ],
     "run_at": "document_idle",
     "js": [

@@ -1,3 +1,16 @@
+const swapElementTag = (oldElement, newTag) => {
+  const newElement = document.createElement(newTag);
+  newElement.attributes = oldElement.attributes;
+  newElement.innerHTML = oldElement.innerHTML;
+  newElement.innerText = oldElement.innerText;
+  [...oldElement.attributes].forEach(attr => newElement.setAttribute(attr.nodeName ,attr.nodeValue));
+  if (oldElement.tagName === 'A')
+    newElement.href = oldElement.href;
+  console.log('before replace child');
+  oldElement.parentNode.replaceChild(newElement, oldElement);
+  return newElement;
+}
+
 var Search = class {
   constructor(dom) {
     dom.querySelectorAll('a').forEach(node => node.setAttribute('target', '_blank'));
@@ -33,6 +46,8 @@ var Manga = class {
 
   appendBlacklistButton() {
     if (!this.header.querySelector('#blacklist-button') && this.href) {
+      if (this.header.tagName === 'A')
+        this.header = swapElementTag(this.header, 'div');
       const blacklistButton = document.createElement('button');
       blacklistButton.setAttribute("id", "blacklist-button");
       blacklistButton.innerHTML = 'X';
